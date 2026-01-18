@@ -138,6 +138,7 @@
         "next": "Next",
         "previous": "Previous",
         "showing": "Showing {from} - {to} of {total} results",
+        "select_an_option": "Select an option",
         "edit": "Edit",
         "close": "Close",
         "confirm": "Confirm",
@@ -488,6 +489,7 @@
         "noServersFound": "No servers found",
         "adjustFilters": "Try adjusting your search or filters",
         "getStarted": "Get started by creating your first server",
+        "folderViewAllLoaded": "All {total} servers are loaded for folder organization.",
         "runningOnly": "Running only",
         "liveConnected": "Live",
         "live": "LIVE",
@@ -687,6 +689,8 @@
             "imageUrl": "Image URL",
             "applyImage": "Apply Image",
             "or": "OR",
+            "customColor": "Custom Color",
+            "customColorHelp": "Enter a hex color code (e.g., #FF5733) or use the color picker to select a custom background color.",
             "presets": {
                 "purpleDream": "Purple Dream",
                 "oceanBreeze": "Ocean Breeze",
@@ -728,7 +732,6 @@
             "zeroTrust": "ZeroTrust Security",
             "images": "Images",
             "mailTemplates": "Mail Templates",
-            "redirectLinks": "Redirect Links",
             "translations": "Translations",
             "aiAgent": "AI Agent",
             "settings": "Settings",
@@ -1592,6 +1595,7 @@
         "noVariablesConfigured": "No environment variables configured for this software.",
         "variableSingular": "Variable",
         "variablePlural": "Variables",
+        "loadTimeout": "Loading timed out. Please try again or check your connection.",
         "readOnly": "Read-Only",
         "enterValue": "Enter value...",
         "configureNewVariables": "Configure New Variables",
@@ -1725,7 +1729,585 @@
             "save_error": "Failed to save file",
             "load_error": "Failed to load file content",
             "loading_description": "Please wait while the file content is loaded",
-            "loading_title": "Loading File..."
+            "loading_title": "Loading File...",
+            "load_timeout": "File loading timed out. The file may be too large or the server is taking too long to respond."
+        },
+        "editors": {
+            "minecraftProperties": {
+                "title": "Minecraft Server Properties",
+                "description": "Configure your Minecraft server properties visually",
+                "prompt": {
+                    "title": "Visual Editor Available",
+                    "description": "This file can be edited using a visual editor with a user-friendly interface.",
+                    "useGui": "Use Visual Editor",
+                    "stayRaw": "Stay in Raw Editor"
+                },
+                "actions": {
+                    "save": "Save",
+                    "saving": "Saving...",
+                    "switchToRaw": "Switch to Raw Editor"
+                },
+                "fields": {
+                    "motd": {
+                        "label": "Message of the Day",
+                        "description": "The message shown to players when they join"
+                    },
+                    "maxPlayers": {
+                        "label": "Max Players",
+                        "description": "Maximum number of players allowed on the server"
+                    },
+                    "gamemode": {
+                        "label": "Gamemode",
+                        "description": "Default gamemode for new players"
+                    },
+                    "difficulty": {
+                        "label": "Difficulty",
+                        "description": "Server difficulty level"
+                    },
+                    "whiteList": {
+                        "label": "Whitelist",
+                        "description": "Enable whitelist to restrict access"
+                    },
+                    "enforceWhitelist": {
+                        "label": "Enforce Whitelist",
+                        "description": "Automatically kick non-whitelisted players"
+                    },
+                    "onlineMode": {
+                        "label": "Online Mode",
+                        "description": "Verify players with Mojang (set to false for cracked servers)"
+                    },
+                    "pvp": {
+                        "label": "PVP",
+                        "description": "Allow player vs player combat"
+                    },
+                    "enableCommandBlock": {
+                        "label": "Enable Command Blocks",
+                        "description": "Enable command blocks in the world"
+                    },
+                    "allowFlight": {
+                        "label": "Allow Flight",
+                        "description": "Allow players to fly"
+                    },
+                    "spawnMonsters": {
+                        "label": "Spawn Monsters",
+                        "description": "Allow monsters to spawn"
+                    },
+                    "allowNether": {
+                        "label": "Allow Nether",
+                        "description": "Allow players to travel to the Nether"
+                    },
+                    "forceGamemode": {
+                        "label": "Force Gamemode",
+                        "description": "Force players to default gamemode"
+                    },
+                    "broadcastConsoleToOps": {
+                        "label": "Broadcast Console to OPs",
+                        "description": "Send console messages to operators"
+                    },
+                    "spawnProtection": {
+                        "label": "Spawn Protection",
+                        "description": "Radius of spawn protection (0 to disable)"
+                    },
+                    "viewDistance": {
+                        "label": "View Distance",
+                        "description": "Maximum chunk render distance (3-32)"
+                    },
+                    "simulationDistance": {
+                        "label": "Simulation Distance",
+                        "description": "Maximum chunk simulation distance (3-32)"
+                    },
+                    "levelName": {
+                        "label": "Level Name",
+                        "description": "Name of the world folder"
+                    },
+                    "levelSeed": {
+                        "label": "Level Seed",
+                        "description": "Seed for world generation (leave empty for random)"
+                    },
+                    "generatorSettings": {
+                        "label": "Generator Settings",
+                        "description": "Custom generator settings (JSON format)"
+                    },
+                    "levelType": {
+                        "label": "Level Type",
+                        "description": "World generation type"
+                    },
+                    "generateStructures": {
+                        "label": "Generate Structures",
+                        "description": "Generate structures like villages and temples"
+                    },
+                    "hardcore": {
+                        "label": "Hardcore",
+                        "description": "Enable hardcore mode (permanent death)"
+                    },
+                    "requireResourcePack": {
+                        "label": "Require Resource Pack",
+                        "description": "Force players to use the resource pack"
+                    },
+                    "hideOnlinePlayers": {
+                        "label": "Hide Online Players",
+                        "description": "Hide player count from server list"
+                    },
+                    "enforceSecureProfile": {
+                        "label": "Enforce Secure Profile",
+                        "description": "Require secure profile signatures"
+                    },
+                    "previewsChat": {
+                        "label": "Previews Chat",
+                        "description": "Enable chat message previews"
+                    },
+                    "useNativeTransport": {
+                        "label": "Use Native Transport",
+                        "description": "Use native network transport for better performance"
+                    },
+                    "resourcePack": {
+                        "label": "Resource Pack",
+                        "description": "URL to the resource pack file"
+                    },
+                    "resourcePackSha1": {
+                        "label": "Resource Pack SHA1",
+                        "description": "SHA1 hash of the resource pack"
+                    },
+                    "resourcePackId": {
+                        "label": "Resource Pack ID",
+                        "description": "Unique identifier for the resource pack"
+                    },
+                    "resourcePackPrompt": {
+                        "label": "Resource Pack Prompt",
+                        "description": "Message shown when prompting players to download the resource pack"
+                    },
+                    "opPermissionLevel": {
+                        "label": "OP Permission Level",
+                        "description": "Permission level for server operators (1-4)"
+                    },
+                    "functionPermissionLevel": {
+                        "label": "Function Permission Level",
+                        "description": "Permission level required to use functions (1-4)"
+                    },
+                    "entityBroadcastRangePercentage": {
+                        "label": "Entity Broadcast Range Percentage",
+                        "description": "Entity broadcast range percentage (0-500)"
+                    },
+                    "maxChainedNeighborUpdates": {
+                        "label": "Max Chained Neighbor Updates",
+                        "description": "Maximum chained block updates (-1 for unlimited)"
+                    },
+                    "maxWorldSize": {
+                        "label": "Max World Size",
+                        "description": "Maximum world size in blocks"
+                    }
+                },
+                "sections": {
+                    "serverInfo": "Server Information",
+                    "worldSettings": "World Settings",
+                    "gameplay": "Gameplay Settings",
+                    "network": "Network & Security",
+                    "performance": "Performance Settings",
+                    "resourcePack": "Resource Pack",
+                    "advanced": "Advanced Settings"
+                },
+                "sectionsDescriptions": {
+                    "serverInfo": "Basic server configuration",
+                    "worldSettings": "World generation and configuration",
+                    "gameplay": "Gameplay and player behavior settings",
+                    "network": "Network and security settings",
+                    "performance": "Server performance and rendering settings",
+                    "resourcePack": "Resource pack configuration",
+                    "advanced": "Advanced server configuration"
+                },
+                "options": {
+                    "gamemode": {
+                        "survival": "Survival",
+                        "creative": "Creative",
+                        "adventure": "Adventure",
+                        "spectator": "Spectator"
+                    },
+                    "difficulty": {
+                        "peaceful": "Peaceful",
+                        "easy": "Easy",
+                        "normal": "Normal",
+                        "hard": "Hard"
+                    },
+                    "levelType": {
+                        "default": "Default",
+                        "flat": "Flat",
+                        "amplified": "Amplified",
+                        "largeBiomes": "Large Biomes",
+                        "singleBiome": "Single Biome"
+                    }
+                }
+            },
+            "spigotConfig": {
+                "title": "Spigot Configuration",
+                "description": "Configure your Spigot server settings visually",
+                "prompt": {
+                    "title": "Visual Editor Available",
+                    "description": "This file can be edited using a visual editor with a user-friendly interface.",
+                    "useGui": "Use Visual Editor",
+                    "stayRaw": "Stay in Raw Editor"
+                },
+                "actions": {
+                    "save": "Save",
+                    "saving": "Saving...",
+                    "switchToRaw": "Switch to Raw Editor"
+                },
+                "sections": {
+                    "settings": "Settings",
+                    "messages": "Messages",
+                    "advancements": "Advancements",
+                    "worldSettings": "World Settings",
+                    "playersStats": "Players & Stats",
+                    "commands": "Commands",
+                    "attributeLimits": "Attribute Limits",
+                    "mergeRadius": "Merge Radius",
+                    "growthRates": "Growth Rates",
+                    "entityActivationRange": "Entity Activation Range",
+                    "entityTrackingRange": "Entity Tracking Range",
+                    "seeds": "Seeds",
+                    "hunger": "Hunger"
+                },
+                "sectionsDescriptions": {
+                    "settings": "General server settings and configuration",
+                    "messages": "Customize server messages",
+                    "advancements": "Manage advancement settings",
+                    "worldSettings": "Configure world-specific settings",
+                    "playersStats": "Player and statistics configuration",
+                    "commands": "Command-related settings"
+                },
+                "fields": {
+                    "settings": {
+                        "bungeecord": {
+                            "label": "Enable BungeeCord support",
+                            "description": "Forward IPs and UUIDs from a BungeeCord proxy."
+                        },
+                        "saveUserCacheOnStopOnly": {
+                            "label": "Save user cache on stop only",
+                            "description": "Write UUID cache only when the server stops to improve performance."
+                        },
+                        "sampleCount": {
+                            "label": "Sample count",
+                            "description": "Number of players sampled for TPS calculations."
+                        },
+                        "playerShuffle": {
+                            "label": "Player shuffle interval",
+                            "description": "How often the player list is shuffled to balance ticking."
+                        },
+                        "userCacheSize": {
+                            "label": "User cache size",
+                            "description": "Maximum number of player UUIDs cached locally."
+                        },
+                        "movedWronglyThreshold": {
+                            "label": "Moved wrongly threshold",
+                            "description": "Distance before players are flagged for incorrect movement."
+                        },
+                        "movedTooQuicklyMultiplier": {
+                            "label": "Moved too quickly multiplier",
+                            "description": "Multiplier applied when checking fast movement."
+                        },
+                        "timeoutTime": {
+                            "label": "Timeout time",
+                            "description": "Minutes before a connection is considered timed out."
+                        },
+                        "restartOnCrash": {
+                            "label": "Restart on crash",
+                            "description": "Automatically run the restart script if the server crashes."
+                        },
+                        "nettyThreads": {
+                            "label": "Netty threads",
+                            "description": "Number of Netty IO threads used by the server."
+                        },
+                        "logVillagerDeaths": {
+                            "label": "Log villager deaths",
+                            "description": "Write villager death events to the console for debugging."
+                        },
+                        "logNamedDeaths": {
+                            "label": "Log named entity deaths",
+                            "description": "Log deaths of named entities to help track important mobs."
+                        },
+                        "debug": {
+                            "label": "Enable debug logging",
+                            "description": "Enable extra debug output for troubleshooting."
+                        },
+                        "attribute": {
+                            "maxAbsorption": "Max absorption",
+                            "maxHealth": "Max health",
+                            "movementSpeed": "Max movement speed",
+                            "attackDamage": "Max attack damage"
+                        }
+                    },
+                    "messages": {
+                        "whitelist": "Whitelist message",
+                        "unknownCommand": "Unknown command message",
+                        "serverFull": "Server full message",
+                        "outdatedClient": "Outdated client message",
+                        "outdatedServer": "Outdated server message",
+                        "restart": "Restart message"
+                    }
+                }
+            },
+            "opsConfig": {
+                "title": "Server Operators",
+                "description": "Manage server operators (OPs)",
+                "notice": "Operators have elevated permissions on the server. Be careful when adding operators.",
+                "emptyState": "No operators configured",
+                "actions": {
+                    "save": "Save",
+                    "saving": "Saving...",
+                    "switchToRaw": "Switch to Raw Editor",
+                    "add": "Add Operator"
+                },
+                "fields": {
+                    "uuid": "UUID",
+                    "name": "Name",
+                    "level": "Level",
+                    "bypassesPlayerLimit": "Bypass Player Limit",
+                    "enabled": "Enabled",
+                    "disabled": "Disabled"
+                }
+            },
+            "bannedPlayersConfig": {
+                "title": "Banned Players",
+                "description": "Manage banned players",
+                "notice": "Banned players cannot join the server. Be careful when managing bans.",
+                "emptyState": "No banned players",
+                "actions": {
+                    "save": "Save",
+                    "saving": "Saving...",
+                    "switchToRaw": "Switch to Raw Editor",
+                    "add": "Add Banned Player"
+                },
+                "fields": {
+                    "uuid": "UUID",
+                    "name": "Name",
+                    "created": "Created",
+                    "source": "Source",
+                    "expires": "Expires",
+                    "reason": "Reason"
+                }
+            },
+            "bannedIpsConfig": {
+                "title": "Banned IPs",
+                "description": "Manage banned IP addresses",
+                "notice": "Banned IPs cannot connect to the server. Be careful when managing IP bans.",
+                "emptyState": "No banned IPs",
+                "actions": {
+                    "save": "Save",
+                    "saving": "Saving...",
+                    "switchToRaw": "Switch to Raw Editor",
+                    "add": "Add Banned IP"
+                },
+                "fields": {
+                    "ip": "IP Address",
+                    "created": "Created",
+                    "source": "Source",
+                    "expires": "Expires",
+                    "reason": "Reason"
+                }
+            },
+            "whitelistConfig": {
+                "title": "Whitelist",
+                "description": "Manage whitelisted players",
+                "notice": "Only whitelisted players can join the server when whitelist is enabled.",
+                "emptyState": "No whitelisted players",
+                "actions": {
+                    "save": "Save",
+                    "saving": "Saving...",
+                    "switchToRaw": "Switch to Raw Editor",
+                    "add": "Add Player"
+                },
+                "fields": {
+                    "playerName": "Player Name"
+                }
+            },
+            "bukkitConfig": {
+                "title": "Bukkit Configuration",
+                "description": "Configure your Bukkit server settings visually",
+                "actions": {
+                    "save": "Save",
+                    "saving": "Saving...",
+                    "switchToRaw": "Switch to Raw Editor"
+                },
+                "sections": {
+                    "settings": "Settings",
+                    "spawnLimits": "Spawn Limits",
+                    "ticksPer": "Ticks Per",
+                    "chunkGc": "Chunk Garbage Collection",
+                    "aliases": "Aliases"
+                },
+                "sectionsDescriptions": {
+                    "settings": "General server settings and configuration",
+                    "spawnLimits": "Maximum number of entities that can spawn",
+                    "ticksPer": "Ticks between various spawn events",
+                    "chunkGc": "Chunk garbage collection settings",
+                    "aliases": "Command alias configuration"
+                },
+                "fields": {
+                    "allowEnd": {
+                        "label": "Allow End",
+                        "description": "Allow players to travel to the End dimension"
+                    },
+                    "warnOnOverload": {
+                        "label": "Warn on Overload",
+                        "description": "Show warnings when the server is overloaded"
+                    },
+                    "permissionsFile": {
+                        "label": "Permissions File",
+                        "description": "Path to the permissions configuration file",
+                        "placeholder": "permissions.yml"
+                    },
+                    "updateFolder": {
+                        "label": "Update Folder",
+                        "description": "Folder where plugin updates are stored",
+                        "placeholder": "update"
+                    },
+                    "pluginProfiling": {
+                        "label": "Plugin Profiling",
+                        "description": "Enable profiling for plugin performance analysis"
+                    },
+                    "connectionThrottle": {
+                        "label": "Connection Throttle",
+                        "description": "Milliseconds to throttle connections (-1 to disable)"
+                    },
+                    "queryPlugins": {
+                        "label": "Query Plugins",
+                        "description": "Include plugin information in server queries"
+                    },
+                    "deprecatedVerbose": {
+                        "label": "Deprecated Verbose",
+                        "description": "Control verbose output for deprecated features",
+                        "placeholder": "Select option"
+                    },
+                    "shutdownMessage": {
+                        "label": "Shutdown Message",
+                        "description": "Message shown to players when the server shuts down"
+                    },
+                    "minimumApi": {
+                        "label": "Minimum API",
+                        "description": "Minimum API version required for plugins",
+                        "placeholder": "none"
+                    },
+                    "useMapColorCache": {
+                        "label": "Use Map Color Cache",
+                        "description": "Cache map colors for better performance"
+                    },
+                    "spawnLimits": {
+                        "monsters": {
+                            "label": "Monsters",
+                            "description": "Maximum number of monsters"
+                        },
+                        "animals": {
+                            "label": "Animals",
+                            "description": "Maximum number of animals"
+                        },
+                        "waterAnimals": {
+                            "label": "Water Animals",
+                            "description": "Maximum number of water animals"
+                        },
+                        "waterAmbient": {
+                            "label": "Water Ambient",
+                            "description": "Maximum number of ambient water creatures"
+                        },
+                        "waterUndergroundCreature": {
+                            "label": "Water Underground Creature",
+                            "description": "Maximum number of underground water creatures"
+                        },
+                        "axolotls": {
+                            "label": "Axolotls",
+                            "description": "Maximum number of axolotls"
+                        },
+                        "ambient": {
+                            "label": "Ambient",
+                            "description": "Maximum number of ambient creatures"
+                        }
+                    },
+                    "ticksPer": {
+                        "animalSpawns": {
+                            "label": "Animal Spawns",
+                            "description": "Ticks between animal spawn attempts"
+                        },
+                        "monsterSpawns": {
+                            "label": "Monster Spawns",
+                            "description": "Ticks between monster spawn attempts"
+                        },
+                        "waterSpawns": {
+                            "label": "Water Spawns",
+                            "description": "Ticks between water creature spawn attempts"
+                        },
+                        "waterAmbientSpawns": {
+                            "label": "Water Ambient Spawns",
+                            "description": "Ticks between ambient water creature spawn attempts"
+                        },
+                        "waterUndergroundCreatureSpawns": {
+                            "label": "Water Underground Creature Spawns",
+                            "description": "Ticks between underground water creature spawn attempts"
+                        },
+                        "axolotlSpawns": {
+                            "label": "Axolotl Spawns",
+                            "description": "Ticks between axolotl spawn attempts"
+                        },
+                        "ambientSpawns": {
+                            "label": "Ambient Spawns",
+                            "description": "Ticks between ambient creature spawn attempts"
+                        },
+                        "autosave": {
+                            "label": "Autosave",
+                            "description": "Ticks between automatic world saves"
+                        }
+                    },
+                    "chunkGc": {
+                        "periodInTicks": {
+                            "label": "Period in Ticks",
+                            "description": "Ticks between chunk garbage collection runs"
+                        }
+                    },
+                    "aliases": {
+                        "label": "Aliases",
+                        "description": "Command alias configuration (usually 'now-in-commands.yml')",
+                        "placeholder": "now-in-commands.yml"
+                    }
+                },
+                "options": {
+                    "deprecatedVerbose": {
+                        "default": "Default",
+                        "true": "True",
+                        "false": "False"
+                    }
+                }
+            },
+            "commandsConfig": {
+                "title": "Commands Configuration",
+                "description": "Configure command aliases and overrides",
+                "actions": {
+                    "save": "Save",
+                    "saving": "Saving...",
+                    "switchToRaw": "Switch to Raw Editor"
+                },
+                "sections": {
+                    "general": "General Settings",
+                    "aliases": "Command Aliases"
+                },
+                "sectionsDescriptions": {
+                    "general": "General command configuration settings",
+                    "aliases": "Create custom command aliases"
+                },
+                "fields": {
+                    "ignoreVanillaPermissions": {
+                        "label": "Ignore Vanilla Permissions",
+                        "description": "Ignore vanilla Minecraft permission checks"
+                    },
+                    "commandBlockOverrides": {
+                        "label": "Command Block Overrides",
+                        "description": "Commands that can be executed by command blocks (one per line)"
+                    },
+                    "aliases": {
+                        "addAlias": "Add Alias",
+                        "emptyState": "No aliases configured",
+                        "aliasName": "Alias Name",
+                        "aliasCommands": "Commands",
+                        "aliasCommandsHint": "One command per line. These commands will execute when the alias is used."
+                    }
+                }
+            }
         },
         "row": {
             "preview": "Preview",
@@ -2482,8 +3064,8 @@
                 "description_help": "A brief description of this server. (Optional)",
                 "description_placeholder": "A brief description (optional)",
                 "startup": "Startup Command",
-                "startup_help": "The command that will be used to start the server. The following data substitutes are available: {{SERVER_MEMORY}}, {{SERVER_IP}}, {{SERVER_PORT}}, and spell variables.",
-                "startup_placeholder": "java -Xms128M -Xmx{{SERVER_MEMORY}}M -jar server.jar",
+                "startup_help": "The command that will be used to start the server. The following data substitutes are available: {SERVER_MEMORY}, {SERVER_IP}, {SERVER_PORT}, and spell variables.",
+                "startup_placeholder": "java -Xms128M -Xmx{SERVER_MEMORY}M -jar server.jar",
                 "threads_placeholder": "e.g. 0, 0-1,3, or 0,1,3,4",
                 "owner": "Server Owner",
                 "owner_help": "Email address of the Server Owner.",
@@ -2540,7 +3122,7 @@
                 "backup_limit": "Backup Limit",
                 "backup_limit_help": "The total number of backups that can be created for this server.",
                 "startup_command": "Startup Command",
-                "startup_command_help": "The command that will be used to start the server. Populated from selected spell. The following data substitutes are available: {{SERVER_MEMORY}}, {{SERVER_IP}}, {{SERVER_PORT}}, and spell variables.",
+                "startup_command_help": "The command that will be used to start the server. Populated from selected spell. The following data substitutes are available: {SERVER_MEMORY}, {SERVER_IP}, {SERVER_PORT}, and spell variables.",
                 "create_server": "Create Server",
                 "cancel": "Cancel",
                 "wizard": {
@@ -3172,7 +3754,6 @@
                     "title": "Translations",
                     "description": "Translations for the panel provided by the community and official contributors",
                     "available": "Available",
-                    "coming_soon": "Coming Soon",
                     "manage_local": "Manage Local Translations",
                     "no_results": "No translations found",
                     "no_community": "No community translations available",
@@ -3182,8 +3763,6 @@
                     "verified": "Verified",
                     "download": "Download",
                     "install": "Install",
-                    "download_coming_soon": "Download functionality will be available when the API is ready",
-                    "download_failed": "Failed to download translation",
                     "install_coming_soon": "Install functionality will be available when the API is ready",
                     "install_failed": "Failed to install translation"
                 },
@@ -3265,7 +3844,6 @@
                 "dialog": {
                     "title": "Install Spell",
                     "realm": "Select Realm *",
-                    "choose_realm": "Choose a realm...",
                     "realm_help": "Select the realm where this spell will be installed.",
                     "install": "Install",
                     "installing": "Installing...",
@@ -3505,8 +4083,7 @@
                     "last_ip": "Last IP",
                     "first_ip": "First IP",
                     "discord_user": "Discord User",
-                    "discord_id": "Discord ID",
-                    "generate_sso": "Generate SSO Link"
+                    "discord_id": "Discord ID"
                 },
                 "actions": {
                     "title": "Actions",
@@ -3921,19 +4498,12 @@
                 "creating": "Creating..."
             },
             "warning_dialog": {
-                "title": "Security Warning",
-                "subtitle": "Sensitive Information Exposure Risk",
-                "do_not": "Security Best Practices:",
                 "items": [
                     null,
                     null,
                     null,
                     null
-                ],
-                "desc": "This page displays sensitive credentials (API Keys) that grant full administrative access to your panel. Exposure could lead to total system compromise.",
-                "security_warning": "⚠️ ATTENTION: Close this page immediately if you are livestreaming or screen sharing.",
-                "go_back": "Exit Page",
-                "continue": "I Understand the Risks"
+                ]
             }
         },
         "database_management": {
@@ -4066,12 +4636,9 @@
                 "loading": "Loading plugins...",
                 "no_results": "No plugins found matching your search",
                 "no_description": "No description available",
-                "resync_symlinks": "Resync Symlinks",
-                "delete": "Delete",
                 "saving": "Saving...",
                 "sdk": {
                     "title": "SDK Information",
-                    "latest_update": "Latest update",
                     "update_message": "Plugins now support custom group assignments, allowing for enhanced organization and seamless management."
                 },
                 "actions": {
@@ -4086,7 +4653,6 @@
                 "dependencies_missing": "Dependencies Missing",
                 "configured": "Configured",
                 "needs_config": "Needs Config",
-                "author": "Author",
                 "messages": {
                     "fetch_failed": "Failed to fetch plugins",
                     "settings_saved": "All settings saved successfully",
@@ -4103,13 +4669,11 @@
                 "details": {
                     "title": "Details",
                     "info": "Plugin Information",
-                    "identifier": "Identifier",
                     "version": "Version",
                     "author": "Author",
                     "status": "Status",
                     "flags": "Flags",
                     "dependencies": "Dependencies",
-                    "no_dependencies": "No dependencies",
                     "configuration": "Configuration",
                     "required": "Required",
                     "save_settings": "Save All Settings",
@@ -4312,20 +4876,14 @@
                     "description": "Configure settings for {plugin}",
                     "loading": "Loading plugin configuration...",
                     "settings_title": "Plugin Settings",
-                    "fields_count": "{count} fields",
                     "required": "Required",
                     "no_schema": "This plugin doesn't have a configuration schema defined",
                     "no_schema_desc": "The plugin developer needs to add a config section to conf.yml",
                     "spell_restrictions": {
                         "title": "Server Sidebar Spell Restrictions",
                         "description": "Configure which server types (spells) this plugin should appear on. Leave empty to show on all server types.",
-                        "search_placeholder": "Type to search spells...",
-                        "selected_spells": "Selected Spells",
-                        "selected_count": "{count} selected",
                         "loading": "Loading spells...",
                         "no_spells": "No spells found",
-                        "no_spells_search": "Try a different search term",
-                        "selected_badge": "Selected",
                         "save": "Save Spell Restrictions",
                         "saving": "Saving...",
                         "previous": "Previous",
@@ -4365,7 +4923,8 @@
                 "reinstall": {
                     "title": "Select Plugins to Reinstall",
                     "description": "Choose which previously installed plugins you would like to reinstall.",
-                    "button_label": "Reinstall {count} Plugin(s)"
+                    "button_label": "Reinstall {count} Plugin(s)",
+                    "reinstalling": "Reinstalling..."
                 }
             },
             "banners": {
@@ -4415,48 +4974,12 @@
             }
         },
         "redirect_links": {
-            "title": "Redirect Links",
-            "subtitle": "Manage URL redirects for your system.",
-            "create": "Create Redirect Link",
-            "search_placeholder": "Search by name or URL...",
-            "no_results": "No redirect links found.",
-            "table": {
-                "created_at": "Created"
-            },
-            "form": {
-                "create_title": "Create Redirect Link",
-                "create_description": "Create a new redirect link for your system.",
-                "edit_title": "Edit Redirect Link",
-                "edit_description": "Edit details for the redirect link.",
-                "view_title": "Redirect Link Details",
-                "name": "Name",
-                "slug": "Short URL Slug",
-                "slug_placeholder": "my-redirect",
-                "slug_help": "Leave empty to auto-generate from name.",
-                "url": "Destination URL",
-                "url_placeholder": "https://example.com",
-                "submit_create": "Create Redirect Link",
-                "submit_update": "Update Redirect Link"
-            },
-            "messages": {
-                "fetch_failed": "Failed to fetch redirect links.",
-                "created": "Redirect link created successfully.",
-                "create_failed": "Failed to create redirect link.",
-                "updated": "Redirect link updated successfully.",
-                "update_failed": "Failed to update redirect link.",
-                "deleted": "Redirect link deleted successfully.",
-                "delete_failed": "Failed to delete redirect link.",
-                "delete_confirm": "Are you sure you want to delete this redirect link? This action cannot be undone."
-            },
+            "table": {},
+            "form": {},
+            "messages": {},
             "help": {
-                "what_is": {
-                    "title": "What are Redirect Links?",
-                    "description": "Create short slugs that map to full URLs. Use paths like /discord to send users to your Discord, forum, status page, or any external resource."
-                },
-                "nice_pages": {
-                    "title": "Nice redirect pages",
-                    "description": "Visiting a slug displays a clean, animated redirect page before forwarding. It keeps links memorable and consistent across your brand."
-                }
+                "what_is": {},
+                "nice_pages": {}
             }
         },
         "translations": {
@@ -4468,15 +4991,7 @@
             "search_placeholder": "Search by language code...",
             "no_results": "No translation files found.",
             "import_default": "Import Default English Translations",
-            "importing": "Importing...",
-            "table": {
-                "code": "Language Code",
-                "name": "Language Name",
-                "file": "File",
-                "size": "Size",
-                "modified": "Last Modified",
-                "enabled": "Status"
-            },
+            "table": {},
             "form": {
                 "edit_title": "Edit Translation File",
                 "edit_description": "Edit translations for {lang}",
@@ -4485,10 +5000,8 @@
                 "language_code": "Language Code",
                 "language_code_placeholder": "en",
                 "language_code_help": "ISO 639-1 language code (e.g., en, de, fr)",
-                "json_content": "Translation JSON",
                 "submit_create": "Create Translation File",
-                "submit_update": "Save Translations",
-                "import_description": "Import default English translations from frontend to backend."
+                "submit_update": "Save Translations"
             },
             "messages": {
                 "fetch_failed": "Failed to fetch translation files.",
@@ -4504,9 +5017,7 @@
                 "import_failed": "Failed to import default English translations.",
                 "invalid_json": "Invalid JSON format. Please check your syntax.",
                 "uploaded": "Uploaded successfully.",
-                "upload_failed": "Failed to upload translation file.",
-                "save_success": "Translations saved successfully.",
-                "save_failed": "Failed to save translations."
+                "upload_failed": "Failed to upload translation file."
             },
             "help": {
                 "what_is": {
@@ -4518,13 +5029,7 @@
                     "description": "If a translation key is missing in a language file, it will fallback to English, and then to frontend translations if still missing."
                 }
             },
-            "enabled": {
-                "title": "Enabled Languages",
-                "description": "Manage which languages are available to users.",
-                "get_failed": "Failed to fetch enabled languages.",
-                "set_failed": "Failed to update enabled languages.",
-                "set_success": "Enabled languages updated successfully."
-            }
+            "enabled": {}
         },
         "images": {
             "title": "Images",
@@ -5071,15 +5576,7 @@
         "retry": "Retry"
     },
     "public": {
-        "redirect": {
-            "title": "Redirecting...",
-            "subtitle": "Please wait while we redirect you to your destination.",
-            "target_title": "Redirecting to {name}",
-            "countdown": "You will be redirected in {count} seconds to:",
-            "continue": "Continue Now",
-            "go_home": "Go Home Instead",
-            "auto_redirect_help": "If you are not redirected automatically, click the button above."
-        }
+        "redirect": {}
     },
     "chatbot": {
         "title": "FeatherPanel AI",
