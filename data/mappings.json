@@ -142,5 +142,9 @@
     "lt": {
         "name": "Lithuanian",
         "nativeName": "Lietuvių"
+    },
+    "km": {
+        "name": "Khmer",
+        "nativeName": "ភាសាខ្មែរ"
     }
 }
